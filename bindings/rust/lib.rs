@@ -6,7 +6,7 @@
 //! ```
 //! let code = "";
 //! let mut parser = tree_sitter::Parser::new();
-//! parser.set_language(tree_sitter_swift::language()).expect("Error loading swift grammar");
+//! parser.set_language(&npezza93_tree_sitter_swift::language()).expect("Error loading swift grammar");
 //! let tree = parser.parse(code, None).unwrap();
 //! ```
 //!
@@ -47,7 +47,7 @@ mod tests {
     #[test]
     fn test_can_load_grammar() -> Result<()> {
         let mut parser = tree_sitter::Parser::new();
-        parser.set_language(super::language())?;
+        parser.set_language(&super::language())?;
 
         Ok(())
     }
@@ -55,7 +55,7 @@ mod tests {
     #[test]
     fn test_can_parse_basic_file() -> Result<()> {
         let mut parser = tree_sitter::Parser::new();
-        parser.set_language(super::language())?;
+        parser.set_language(&super::language())?;
 
         let tree = parser
             .parse("_ = \"Hello!\"\n", None)
